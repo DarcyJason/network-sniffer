@@ -1,11 +1,7 @@
 use dioxus::prelude::*;
 
-// Import components from the components module
-use crate::components::{
-    Home, Docs, Settings, Navbar, PageNotFound
-};
+use crate::components::{Docs, Home, Navbar, Settings};
 
-// Define the components module
 mod components;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -13,15 +9,12 @@ const MAIN_CSS: Asset = asset!("/assets/main.css");
 #[derive(Routable, Clone)]
 pub enum Route {
     #[layout(Navbar)]
-        #[route("/")]
-        Home {},
-        #[route("/docs")]
-        Docs {},
-        #[route("/settings")]
-        Settings {},
-    #[end_layout]
-    #[route("/..route")]
-    PageNotFound { route: Vec<String> },
+    #[route("/")]
+    Home {},
+    #[route("/docs")]
+    Docs {},
+    #[route("/settings")]
+    Settings {},
 }
 
 fn main() {
